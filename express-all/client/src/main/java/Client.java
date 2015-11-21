@@ -375,10 +375,8 @@ public class Client {
 //			System.out.println(vo.getBaseSalary());
 			ConstInfoConstblService cinfo = (ConstInfoConstblService)
 						Naming.lookup("rmi://127.0.0.1:33000/ConstInfoVO");
-//			double salary = cinfo.find().getBaseSalary();
+			cinfo.find();
 			cinfo.update(vo);
-			double salary = cinfo.update(vo).getBaseSalary();
-			System.out.println("The baseSalary is "+ salary);
 			
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
