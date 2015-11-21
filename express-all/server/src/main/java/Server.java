@@ -1,14 +1,9 @@
-import java.net.MalformedURLException;
-import java.rmi.AlreadyBoundException;
-import java.rmi.Naming;
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
 import businesslogicservice.constblservice.ConstInfoConstblService;
-import impl.constImpl.ConstImpl;
-import vo.ConstInfoVO;
+import impl.constImpl.ConstInfoServiceImpl;
 
 public class Server {
 
@@ -16,7 +11,7 @@ public class Server {
 		// TODO Auto-generated method stub
 
 		try{
-			ConstInfoConstblService vo = new ConstImpl();
+			ConstInfoConstblService vo = new ConstInfoServiceImpl();
 			Registry registry = LocateRegistry.createRegistry(33000);
 //			Naming.bind("rmi://127.0.0.1:33000/ConstInfoVO", vo);
 			registry.rebind("ConstInfoVO", vo);
